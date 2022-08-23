@@ -1,0 +1,19 @@
+#Tue Aug 23 06:30:31 WAT 2022
+path.4=15/classes.dex
+path.3=14/classes.dex
+path.2=10/classes.dex
+path.1=0/classes.dex
+path.5=4/classes.dex
+path.0=classes.dex
+base.4=/home/sims/KDA/PROJET/playaz/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/15/classes.dex
+base.3=/home/sims/KDA/PROJET/playaz/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/14/classes.dex
+base.2=/home/sims/KDA/PROJET/playaz/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/10/classes.dex
+base.1=/home/sims/KDA/PROJET/playaz/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.0=/home/sims/KDA/PROJET/playaz/android/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+renamed.5=classes6.dex
+renamed.4=classes5.dex
+base.5=/home/sims/KDA/PROJET/playaz/android/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
