@@ -3,14 +3,16 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import HeaderApp from '../components/Header';
 import SliderApp from '../components/Slider';
+import SliderApp2 from '../components/Slider2';
 
 const MusicPlayer = () => {
 	return (
 		<SafeAreaView style={styles.container}>
 			<HeaderApp />
 			<View style={styles.maincontent}>
-				<Text>Music Player</Text>
 				<SliderApp />
+				<SliderApp2 />
+				<SliderApp2 />
 			</View>
 		</SafeAreaView>
 	)
