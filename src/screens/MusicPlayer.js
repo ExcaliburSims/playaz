@@ -1,15 +1,16 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native'
 import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import HeaderApp from '../components/Header';
+import SliderApp from '../components/Slider';
 
 const MusicPlayer = () => {
 	return (
 		<SafeAreaView style={styles.container}>
 			<HeaderApp />
 			<View style={styles.maincontent}>
-				<Icon name="add-alert" size={30} color="#900" />
 				<Text>Music Player</Text>
+				<SliderApp />
 			</View>
 		</SafeAreaView>
 	)
@@ -24,8 +25,14 @@ const styles = StyleSheet.create({
 		backgroundColor: '#1F172F',
 	},
 	maincontent: {
-		backgroundColor: 'red',
+		marginVertical: 15,
+		//backgroundColor: 'red',
 		alignItems: 'center',
 		justifyContent: 'center',
-	}
+	},
+	picture: {
+		width: 200,
+		height: 200,
+		borderRadius: 31,
+	},
 })
