@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   titleText: {
     color: 'white',
     fontFamily: 'Times',
-    fontSize: 30,
+    fontSize: 25,
     fontWeight: '600',
     letterSpacing: 0.1,
     textAlign: 'left',
