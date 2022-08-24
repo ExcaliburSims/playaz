@@ -22,7 +22,8 @@ const HeaderApp = props => {
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1F172F',
+    //backgroundColor: '#1F172F',
+		backgroundColor: 'green',
     height: '7%',
     justifyContent: 'center',
   },
