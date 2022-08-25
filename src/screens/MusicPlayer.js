@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   container: {
 		flex: 1,
 		backgroundColor: '#1F172F',
+		marginVertical: 0,
 	},
 	maincontent: {
 		marginVertical: 15,
