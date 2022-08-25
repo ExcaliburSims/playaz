@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import HeaderApp from '../components/Header';
 import SliderApp from '../components/Slider';
 import SliderApp2 from '../components/Slider2';
+import ControlMin from '../components/ControlMin';
 
 const MusicPlayer = () => {
 	return (
@@ -14,6 +15,7 @@ const MusicPlayer = () => {
 				<SliderApp2 />
 				<SliderApp2 />
 			</View>
+			<ControlMin />
 		</SafeAreaView>
 	)
 }
