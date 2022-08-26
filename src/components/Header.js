@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     color: 'white',
-    fontFamily: 'Times',
+    fontFamily: 'Poppins-Bold',
     fontSize: 25,
     fontWeight: '600',
     letterSpacing: 0.1,
