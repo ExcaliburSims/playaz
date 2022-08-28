@@ -17,8 +17,8 @@ const Player = () => {
 				</View>
 				{/* son title */}
 				<View>
-					<Text></Text>
-					<Text></Text>
+					<Text style={[styles.songContent, styles.songTitle]}>some Title</Text>
+					<Text style={[styles.songContent, styles.songArtist]}>some Artist Name</Text>
 				</View>
 
 				{/* slider */}
@@ -108,5 +108,19 @@ const styles = StyleSheet.create({
 		},
 		shadowOpacity: 0.5,
 		shadowRadius: 3.84,
+	},
+	songContent: {
+		textAlign: 'center',
+		color: '#ccc',
+	},
+	songTitle: {
+		fontSize: 18,
+		fontWeight: '600',
+	},
+	songArtist: {
+		textAlign: 'center',
+		color: '#EEEEEE',
+		fontSize: 16,
+		fontWeight: '300',
 	},
 })
