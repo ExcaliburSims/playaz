@@ -20,28 +20,28 @@ const Player = () => {
 				<Icone
 						name="heart-outline"
 						size={30}
-						color="white"
+						color="#88888888"
 					/>
 				</TouchableOpacity>
 				<TouchableOpacity>
 				<Icone
 						name="repeat-outline"
 						size={30}
-						color="white"
+						color="#88888888"
 					/>
 				</TouchableOpacity>
 				<TouchableOpacity>
 				<Icone
 						name="share-outline"
 						size={30}
-						color="white"
+						color="#88888888"
 					/>
 				</TouchableOpacity>
 				<TouchableOpacity>
 				<Icone
 						name="ellipsis-horizontal"
 						size={30}
-						color="white"
+						color="#88888888"
 					/>
 					</TouchableOpacity>
 				</View>
