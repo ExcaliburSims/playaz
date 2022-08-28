@@ -1,38 +1,50 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import React from 'react'
-import Icone from 'react-native-vector-icons/MaterialIcons';
+import Icone from 'react-native-vector-icons/Ionicons';
+
+const { width, height } = Dimensions.get('screen');
 
 const Player = () => {
 	return (
 		<SafeAreaView style={styles.container}>
-			<View style={styles.maincontent}>
+			<View style={styles.maincontainer}>
 				{/* image */}
 
 				{/* slider */}
 
 				{/* panel controler */}
 			</View>
-			<View /* style={styles.maincontent} */>
+			<View style={styles.bottomcontainer}>
+				<View style={styles.bottomcontainerWrap}>
+				<TouchableOpacity>
 				<Icone
-						name="close"
-						size={30}
-						color="white"
-				/>
-				<Icone
-						name="fast-rewind"
-						size={30}
-						color="white"
-				/>
-				<Icone
-						name="pause"
-						size={30}
-						color="white"
-				/>
-				<Icone
-						name="fast-forward"
+						name="heart-outline"
 						size={30}
 						color="white"
 					/>
+				</TouchableOpacity>
+				<TouchableOpacity>
+				<Icone
+						name="repeat-outline"
+						size={30}
+						color="white"
+					/>
+				</TouchableOpacity>
+				<TouchableOpacity>
+				<Icone
+						name="share-outline"
+						size={30}
+						color="white"
+					/>
+				</TouchableOpacity>
+				<TouchableOpacity>
+				<Icone
+						name="ellipsis-horizontal"
+						size={30}
+						color="white"
+					/>
+					</TouchableOpacity>
+				</View>
 			</View>
 		</SafeAreaView>
 	)
@@ -44,17 +56,24 @@ const styles = StyleSheet.create({
   container: {
 		flex: 1,
 		backgroundColor: '#1F172F',
-		marginVertical: 0,
 	},
-	maincontent: {
-		marginVertical: 15,
+	maincontainer: {
+		flex: 1,
 		//backgroundColor: 'red',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
-	picture: {
-		width: 200,
-		height: 200,
-		borderRadius: 31,
+	bottomcontainer: {
+		//flexDirection: 'row',
+		width: width,
+		alignItems: 'center',
+		paddingVertical: 15,
+		borderWidth: 1,
+		borderTopColor: '#393E46'
+	},
+	bottomcontainerWrap: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		width: '80%',
 	},
 })
