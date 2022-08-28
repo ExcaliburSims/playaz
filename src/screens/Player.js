@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native'
 import React from 'react'
 import Icone from 'react-native-vector-icons/Ionicons';
+import Slider from '@react-native-community/slider';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -22,6 +23,18 @@ const Player = () => {
 				</View>
 
 				{/* slider */}
+				<View>
+					<Slider
+						style={styles.progressBar}
+						value={20}
+						minimumValue={0}
+						maximumValue={100}
+						thumbTintColor="#FFD369"
+						minimumTrackTintColor="#FFD369"
+						maximumTrackTintColor="#FFF"
+						onSlidingComplete={() => {}}
+					/>
+				</View>
 
 				{/* panel controler */}
 			</View>
@@ -122,5 +135,11 @@ const styles = StyleSheet.create({
 		color: '#EEEEEE',
 		fontSize: 16,
 		fontWeight: '300',
+	},
+	progressBar: {
+		width: 300,
+		height: 40,
+		marginTop: 25,
+		flexDirection: 'row',
 	},
 })
