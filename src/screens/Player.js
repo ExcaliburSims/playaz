@@ -1,21 +1,35 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image, FlatList } from 'react-native'
 import React from 'react'
 import Icone from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
+import data from '../model/data';
 
 const { width, height } = Dimensions.get('screen');
 
 const Player = () => {
+	const renderItem = ({ item, index }) => (
+		<View style={styles.mainimagewrap}>
+			<View style={[styles.imagewrap, styles.elevation]}>
+				<Image
+					source={item.artwork}
+					style={styles.musicimage}
+				/>
+			</View>
+		</View>
+  );
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.maincontainer}>
 				{/* image */}
-				<View style={[styles.imagewrap, styles.elevation]}>
-					<Image
-						source={require('../assets/images/img2.jpg')}
-						style={styles.musicimage}
-					/>
-				</View>
+				<FlatList
+					data={data}
+					renderItem={renderItem}
+					keyExtractor={item => item.id}
+					horizontal
+					pagingEnabled
+					showsHorizontalScrollIndicator={false}
+					scrollEventThrottle={16}
+      	/>
 				{/* son title */}
 				<View>
 					<Text style={[styles.songContent, styles.songTitle]}>some Title</Text>
@@ -184,5 +198,10 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		width: '50%',
+	},
+	mainimagewrap: {
+		width: width,
+		justifyContent: 'center',
+		alignItems: 'center',
 	}
 })
