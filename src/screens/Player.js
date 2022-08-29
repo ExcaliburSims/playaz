@@ -35,8 +35,36 @@ const Player = () => {
 						onSlidingComplete={() => {}}
 					/>
 				</View>
+				{/* progress duration */}
+				<View style={styles.progressDuration}>
+					<Text style={styles.progressLabel}>00:00</Text>
+					<Text style={styles.progressLabel}>00:00</Text>
+				</View>
 
 				{/* panel controler */}
+				<View style={styles.musicControl}>
+					<TouchableOpacity>
+						<Icone
+							name="play-skip-back-outline"
+							size={30}
+							color="#FFD369"
+						/>
+					</TouchableOpacity>
+					<TouchableOpacity>
+						<Icone
+							name="ios-pause-circle"
+							size={75}
+							color="#FFD369"
+						/>
+					</TouchableOpacity>
+					<TouchableOpacity>
+						<Icone
+							name="play-skip-forward-outline"
+							size={30}
+							color="#FFD369"
+						/>
+					</TouchableOpacity>
+				</View>
 			</View>
 			<View style={styles.bottomcontainer}>
 				<View style={styles.bottomcontainerwrap}>
@@ -142,4 +170,19 @@ const styles = StyleSheet.create({
 		marginTop: 25,
 		flexDirection: 'row',
 	},
+	progressDuration: {
+		width: 270,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	progressLabel: {
+		color: '#fff',
+		fontWeight: '300',
+	},
+	musicControl: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+		width: '50%',
+	}
 })
