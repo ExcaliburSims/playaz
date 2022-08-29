@@ -1,5 +1,5 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image, FlatList } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image, FlatList, Animated } from 'react-native'
+import React, {useEffect, useRef, useState} from 'react'
 import Icone from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
 import data from '../model/data';
@@ -7,21 +7,34 @@ import data from '../model/data';
 const { width, height } = Dimensions.get('screen');
 
 const Player = () => {
+	const [songIndex, setSongIndex] = useState(0)
+	const scrollX = useRef(new Animated.Value(0)).current;
+
+	useEffect(() => {
+		scrollX.addListener(({ value }) => {
+			//console.log(`ScrollX : ${value} | Device Width : ${width}`);
+			const index = Math.round(value / width);
+			//console.log(index);
+			setSongIndex(index);
+		})
+	}, [])
+	
+	
 	const renderItem = ({ item, index }) => (
-		<View style={styles.mainimagewrap}>
+		<Animated.View style={styles.mainimagewrap}>
 			<View style={[styles.imagewrap, styles.elevation]}>
 				<Image
 					source={item.artwork}
 					style={styles.musicimage}
 				/>
 			</View>
-		</View>
+		</Animated.View>
   );
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={styles.maincontainer}>
 				{/* image */}
-				<FlatList
+				<Animated.FlatList
 					data={data}
 					renderItem={renderItem}
 					keyExtractor={item => item.id}
@@ -29,11 +42,21 @@ const Player = () => {
 					pagingEnabled
 					showsHorizontalScrollIndicator={false}
 					scrollEventThrottle={16}
+					onScroll={Animated.event(
+            [
+              {
+                nativeEvent: {
+                  contentOffset: {x: scrollX},
+                },
+              },
+            ],
+            {useNativeDriver: true},
+          )}
       	/>
 				{/* son title */}
 				<View>
-					<Text style={[styles.songContent, styles.songTitle]}>some Title</Text>
-					<Text style={[styles.songContent, styles.songArtist]}>some Artist Name</Text>
+					<Text style={[styles.songContent, styles.songTitle]}>{data[songIndex].title}</Text>
+					<Text style={[styles.songContent, styles.songArtist]}>{data[songIndex].artist}</Text>
 				</View>
 
 				{/* slider */}
