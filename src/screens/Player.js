@@ -1,21 +1,45 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image, FlatList, Animated } from 'react-native'
 import React, {useEffect, useRef, useState} from 'react'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Image, FlatList, Animated } from 'react-native'
+import TrackPlayer, {Capability, Event, RepeatMode, State,usePlaybackState, useProgress, useTrackPlayerEvents} from 'react-native-track-player';
 import Icone from 'react-native-vector-icons/Ionicons';
 import Slider from '@react-native-community/slider';
 import data from '../model/data';
 
 const { width, height } = Dimensions.get('screen');
 
+const setUpPlayer = async () => {
+	try {
+		await TrackPlayer.setupPlayer();
+		await TrackPlayer.add(data);
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+const togglePlayBack = async playBackState => {
+	const currentTrack = await TrackPlayer.getCurrentTrack();
+	if (currentTrack != null) {
+		if (playBackState == State.Paused) {
+			await TrackPlayer.play();
+		} else {
+			await TrackPlayer.pause();
+		}
+	}
+}
+
 const Player = () => {
+	const playBackState = usePlaybackState();
 	const [songIndex, setSongIndex] = useState(0)
 	const scrollX = useRef(new Animated.Value(0)).current;
 
 	useEffect(() => {
+		setUpPlayer();
 		scrollX.addListener(({ value }) => {
 			//console.log(`ScrollX : ${value} | Device Width : ${width}`);
 			const index = Math.round(value / width);
 			//console.log(index);
 			setSongIndex(index);
+			return () => TrackPlayer.destroy();
 		})
 	}, [])
 	
@@ -87,12 +111,20 @@ const Player = () => {
 							color="#FFD369"
 						/>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => togglePlayBack(playBackState)}>
 						<Icone
-							name="ios-pause-circle"
+							name={playBackState === State.Playing
+							? "ios-pause-circle"
+							: "ios-play-circle"}
 							size={75}
 							color="#FFD369"
 						/>
+					{/* <TouchableOpacity onPress={() => TrackPlayer.play()}>
+						<Icone
+							name= "ios-play-circle"
+							size={75}
+							color="#FFD369"
+						/> */}
 					</TouchableOpacity>
 					<TouchableOpacity>
 						<Icone
