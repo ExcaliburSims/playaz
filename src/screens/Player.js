@@ -18,6 +18,7 @@ const setUpPlayer = async () => {
 
 const togglePlayBack = async playBackState => {
 	const currentTrack = await TrackPlayer.getCurrentTrack();
+	//console.log(currentTrack);
 	if (currentTrack != null) {
 		if (playBackState == State.Paused) {
 			await TrackPlayer.play();
