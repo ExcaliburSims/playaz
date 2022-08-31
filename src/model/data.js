@@ -34,6 +34,20 @@ const songs = [
     artwork: require('../assets/images/img5.jpg'),
     url: 'https://firebasestorage.googleapis.com/v0/b/spotify-clone-7a2ef.appspot.com/o/Ringtone%2FAudio%2FCrimson%20Fly%20-%20Huma-Huma.mp3?alt=media&token=b2d30b27-286e-4d7d-82ad-1bdfa76a4058',
   },
+  {
+    id: 6,
+    title: 'Bird set free',
+    artist: 'Sia',
+    artwork: require('../assets/images/img6.jpg'),
+    url: require('../assets/audio/Sia - Bird set free.mp3'),
+  },
+  {
+    id: 7,
+    title: 'Inoubliable',
+    artist: 'Alain Makaba',
+    artwork: require('../assets/images/img7.jpg'),
+    url: require('../assets/audio/AlainMakabaInoubliable.mp3'),
+  },
 ];
 
 export default songs;
